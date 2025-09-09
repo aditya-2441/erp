@@ -1,9 +1,12 @@
-// Example: Show alert when clicking Notification box
-document.querySelectorAll(".box")[0].addEventListener("click", () => {
-  alert("You clicked on Notification!");
+// Sidebar toggle for mobile
+const menuToggle = document.querySelector(".menu-toggle");
+const sidebar = document.querySelector(".sidebar");
+
+menuToggle.addEventListener("click", () => {
+  sidebar.classList.toggle("active");
 });
 
-// Example: Show alert when clicking Notice box
-document.querySelectorAll(".box")[1].addEventListener("click", () => {
-  alert("You clicked on Notice!");
+// Example: Notification click interaction
+document.querySelectorAll(".box")[0].addEventListener("click", () => {
+  alert("You have upcoming exams. Please check details in ERP!");
 });
