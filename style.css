@@ -1,48 +1,53 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
-}
-
+/* Background Gradient */
 body {
-  /* Replace flat color with gradient */
-  background: linear-gradient(135deg, #e6ecf7, #f9f9ff);
-  color: #333;
-  min-height: 100vh;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(-45deg, #ffffff, #6dd5fa, #2980b9, #ffffff, #6a11cb, #2575fc);
+  background-size: 500% 500%;
+  animation: gradientShift 12s ease infinite;
 }
 
-/* Header */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #002147; /* UU Blue */
-  color: white;
-  padding: 1rem;
-  position: sticky;
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
   z-index: 1000;
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
+.navbar h1 {
+  color: white;
+  font-size: 20px;
+  margin: 0;
 }
 
-.navbar a {
+.navbar nav a {
   color: white;
-  margin-left: 20px;
   text-decoration: none;
+  margin: 0 12px;
   font-weight: 500;
 }
 
 .menu-toggle {
   display: none;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
+  font-size: 26px;
   color: white;
   cursor: pointer;
 }
@@ -50,123 +55,87 @@ body {
 /* Layout */
 .container {
   display: flex;
+  flex: 1;
+  margin-top: 60px; /* space for navbar */
 }
 
+/* Sidebar */
 .sidebar {
   width: 220px;
-  background: #133e7c;
-  color: white;
-  padding: 1.5rem 1rem;
-  height: 100vh;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  padding: 20px;
+  box-sizing: border-box;
+  height: calc(100vh - 60px);
   position: fixed;
-  transition: transform 0.3s ease;
+  top: 60px;
+  left: 0;
+  overflow-y: auto;
+  transition: left 0.3s ease;
 }
 
-.sidebar h3 {
-  margin-bottom: 1rem;
+.sidebar h2 {
+  font-size: 16px;
+  color: #fff;
+  margin-top: 0;
 }
 
 .sidebar ul {
   list-style: none;
+  padding: 0;
 }
 
 .sidebar ul li {
-  margin: 1rem 0;
+  margin: 12px 0;
 }
 
 .sidebar ul li a {
-  color: white;
+  color: #fff;
   text-decoration: none;
-  transition: 0.2s;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .sidebar ul li a:hover {
-  color: #ffd700;
+  color: #ffeaa7;
 }
 
-.main-content {
+/* Main Content */
+.content {
   margin-left: 240px;
-  padding: 2rem;
-  flex: 1;
+  padding: 20px;
+  color: #fff;
 }
 
-/* Boxes */
-.top-boxes {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+.card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+  padding: 20px;
   margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
-.box {
-  flex: 1;
-  min-width: 250px;
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-  transition: transform 0.2s;
-}
-
-.box:hover {
-  transform: translateY(-5px);
-}
-
-.box h3 {
-  margin-bottom: 10px;
-  color: #133e7c;
-}
-
-.box ul {
-  list-style: disc;
-  margin-left: 20px;
-  line-height: 1.6;
-}
-
-/* Time Table */
-.timetable {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-}
-
-.timetable h2 {
-  margin-bottom: 15px;
-  color: #133e7c;
-}
-
-.timetable table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.timetable th, .timetable td {
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: center;
-}
-
-.timetable th {
-  background: #133e7c;
-  color: white;
+.card h3 {
+  margin-top: 0;
+  color: #fff;
 }
 
 /* Responsive */
-@media (max-width: 900px) {
-  .sidebar {
-    transform: translateX(-100%);
-    position: fixed;
-    top: 60px;
-    left: 0;
-  }
-  .sidebar.active {
-    transform: translateX(0);
-  }
-  .main-content {
-    margin-left: 0;
-  }
+@media (max-width: 768px) {
   .menu-toggle {
     display: block;
+  }
+
+  .sidebar {
+    left: -240px;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+
+  .content {
+    margin-left: 0;
   }
 }

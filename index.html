@@ -3,119 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ERP Portal | Uttaranchal University</title>
+  <title>ERP - Uttaranchal University</title>
   <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="logo">UU ERP</div>
-    <nav class="navbar">
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <h1>Uttaranchal University ERP</h1>
+    <nav>
       <a href="#">Home</a>
-      <a href="#">Profile</a>
-      <a href="#">Settings</a>
+      <a href="#">Research</a>
+      <a href="#">Team</a>
+      <a href="#">Contact</a>
     </nav>
-    <button class="menu-toggle">☰</button>
-  </header>
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+  </div>
 
   <div class="container">
     <!-- Sidebar -->
-    <aside class="sidebar">
-      <h3>Dashboard</h3>
+    <div class="sidebar" id="sidebar">
+      <h2>Dashboard</h2>
       <ul>
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="#">Academics</a></li>
-        <li><a href="#">Fee</a></li>
-        <li><a href="#">Library</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Attendance</a></li>
+        <li><a href="#">Exams</a></li>
+        <li><a href="#">Results</a></li>
+        <li><a href="#">Notices</a></li>
+        <li><a href="#">Settings</a></li>
       </ul>
-    </aside>
+    </div>
 
-    <!-- Main Content -->
-    <main class="main-content">
-      <div class="top-boxes">
-        <div class="box">
-          <h3>Notifications</h3>
-          <ul>
-            <li>Mid-sem Exams start from 18th Sept.</li>
-            <li>ERP Maintenance on Sunday.</li>
-            <li>New Hostel Rules updated.</li>
-          </ul>
-        </div>
-        <div class="box">
-          <h3>Notices</h3>
-          <ul>
-            <li>Fee payment last date: 20th Sept 2025.</li>
-            <li>Lab schedules updated.</li>
-            <li>Smart India Hackathon registrations open.</li>
-          </ul>
-        </div>
+    <!-- Content -->
+    <div class="content">
+      <div class="card">
+        <h3>Notifications</h3>
+        <p>Welcome Aditya Singh (Roll 43, CSE-A) 🎓</p>
+        <p>Your Smart India Hackathon project has been approved 🚀</p>
       </div>
-
-      <section class="timetable">
-        <h2>B.Tech CSE (1st Year, Section A) - Time Table</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Day</th>
-              <th>9–10</th>
-              <th>10–11</th>
-              <th>11–12</th>
-              <th>12–1</th>
-              <th>2–3</th>
-              <th>3–4</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Monday</td>
-              <td>Math</td>
-              <td>DS</td>
-              <td>DBMS</td>
-              <td>OS</td>
-              <td>Lab</td>
-              <td>Lab</td>
-            </tr>
-            <tr>
-              <td>Tuesday</td>
-              <td>OS</td>
-              <td>DBMS</td>
-              <td>Math</td>
-              <td>DS</td>
-              <td>Lab</td>
-              <td>Lab</td>
-            </tr>
-            <tr>
-              <td>Wednesday</td>
-              <td>Math</td>
-              <td>English</td>
-              <td>DS</td>
-              <td>DBMS</td>
-              <td>Workshop</td>
-              <td>Workshop</td>
-            </tr>
-            <tr>
-              <td>Thursday</td>
-              <td>DBMS</td>
-              <td>OS</td>
-              <td>Math</td>
-              <td>DS</td>
-              <td>Lab</td>
-              <td>Lab</td>
-            </tr>
-            <tr>
-              <td>Friday</td>
-              <td>Math</td>
-              <td>DS</td>
-              <td>English</td>
-              <td>OS</td>
-              <td>Sports</td>
-              <td>Sports</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-    </main>
+      <div class="card">
+        <h3>Notice</h3>
+        <p>Mid-semester exams will start from 20th September.</p>
+      </div>
+      <div class="card">
+        <h3>Timetable</h3>
+        <p>
+          Monday - DS, Maths, DBMS <br>
+          Tuesday - OOPS, DSA Lab <br>
+          Wednesday - AI, OS
+        </p>
+      </div>
+    </div>
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
