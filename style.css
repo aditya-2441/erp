@@ -1,53 +1,46 @@
-/* Background Gradient */
-body {
+/* Reset */
+* {
   margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background: linear-gradient(-45deg, #ffffff, #6dd5fa, #2980b9, #ffffff, #6a11cb, #2575fc);
-  background-size: 500% 500%;
-  animation: gradientShift 12s ease infinite;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
 }
 
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+body {
+  background: #f4f6f9;
+  color: #333;
 }
 
-/* Navbar */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 60px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(8px);
+/* Header */
+.header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  align-items: center;
+  background: #002147; /* UU Blue */
+  color: white;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
   z-index: 1000;
 }
 
-.navbar h1 {
-  color: white;
-  font-size: 20px;
-  margin: 0;
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
-.navbar nav a {
+.navbar a {
   color: white;
+  margin-left: 20px;
   text-decoration: none;
-  margin: 0 12px;
   font-weight: 500;
 }
 
 .menu-toggle {
   display: none;
-  font-size: 26px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
   color: white;
   cursor: pointer;
 }
@@ -55,87 +48,123 @@ body {
 /* Layout */
 .container {
   display: flex;
-  flex: 1;
-  margin-top: 60px; /* space for navbar */
 }
 
-/* Sidebar */
 .sidebar {
   width: 220px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
-  padding: 20px;
-  box-sizing: border-box;
-  height: calc(100vh - 60px);
+  background: #133e7c;
+  color: white;
+  padding: 1.5rem 1rem;
+  height: 100vh;
   position: fixed;
-  top: 60px;
-  left: 0;
-  overflow-y: auto;
-  transition: left 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
-.sidebar h2 {
-  font-size: 16px;
-  color: #fff;
-  margin-top: 0;
+.sidebar h3 {
+  margin-bottom: 1rem;
 }
 
 .sidebar ul {
   list-style: none;
-  padding: 0;
 }
 
 .sidebar ul li {
-  margin: 12px 0;
+  margin: 1rem 0;
 }
 
 .sidebar ul li a {
-  color: #fff;
+  color: white;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  transition: 0.2s;
 }
 
 .sidebar ul li a:hover {
-  color: #ffeaa7;
+  color: #ffd700;
 }
 
-/* Main Content */
-.content {
+.main-content {
   margin-left: 240px;
-  padding: 20px;
-  color: #fff;
+  padding: 2rem;
+  flex: 1;
 }
 
-.card {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(6px);
-  border-radius: 12px;
-  padding: 20px;
+/* Boxes */
+.top-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
   margin-bottom: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
-.card h3 {
-  margin-top: 0;
-  color: #fff;
+.box {
+  flex: 1;
+  min-width: 250px;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.box:hover {
+  transform: translateY(-5px);
+}
+
+.box h3 {
+  margin-bottom: 10px;
+  color: #133e7c;
+}
+
+.box ul {
+  list-style: disc;
+  margin-left: 20px;
+  line-height: 1.6;
+}
+
+/* Time Table */
+.timetable {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.timetable h2 {
+  margin-bottom: 15px;
+  color: #133e7c;
+}
+
+.timetable table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.timetable th, .timetable td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.timetable th {
+  background: #133e7c;
+  color: white;
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
+@media (max-width: 900px) {
   .sidebar {
-    left: -240px;
-  }
-
-  .sidebar.active {
+    transform: translateX(-100%);
+    position: fixed;
+    top: 60px;
     left: 0;
   }
-
-  .content {
+  .sidebar.active {
+    transform: translateX(0);
+  }
+  .main-content {
     margin-left: 0;
+  }
+  .menu-toggle {
+    display: block;
   }
 }
